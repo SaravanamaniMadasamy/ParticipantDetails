@@ -1,0 +1,35 @@
+{
+  "description": "Expected format for participant data saved to localStorage",
+  "example": {
+    "id": "1725407423789",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phoneNumber": "+1 (555) 123-4567",
+    "Email": "john.doe@example.com",
+    "linkedInProfile": "https://linkedin.com/in/johndoe",
+    "githubId": "johndoe123",
+    "technicalSkills": {
+      "angular": "7",
+      "python": "8", 
+      "css": "6",
+      "html": "9",
+      "mysql": "5"
+    },
+    "trainingOutcome": "Completed advanced Angular training with focus on reactive programming and state management. Gained proficiency in TypeScript, RxJS, and Angular Material. Developed several projects including a participant management system with local storage integration.",
+    "createdAt": "2025-09-03T10:30:23.789Z",
+    "updatedAt": "2025-09-03T10:30:23.789Z"
+  },
+  "fieldDescriptions": {
+    "id": "Unique identifier as string (timestamp)",
+    "name": "Participant's full name (required)",
+    "email": "Primary email address (required)",
+    "phoneNumber": "Contact number (optional)",
+    "Email": "Duplicate email field as specified in requirements",
+    "linkedInProfile": "LinkedIn profile URL (optional)",
+    "githubId": "GitHub username (optional)",
+    "technicalSkills": "Object containing skill ratings from 1-10",
+    "trainingOutcome": "Training notes and outcome (250-1000 chars)",
+    "createdAt": "ISO timestamp when record was created",
+    "updatedAt": "ISO timestamp when record was last updated"
+  }
+}

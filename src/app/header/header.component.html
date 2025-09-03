@@ -1,0 +1,51 @@
+<mat-toolbar color="primary" class="app-header">
+  <!-- Logo Section (Left) -->
+  <div class="logo-section">
+    <svg class="app-logo" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- Random SVG Logo Design -->
+      <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#2196F3;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#9C27B0;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Geometric shapes forming a modern logo -->
+      <circle cx="20" cy="20" r="8" fill="url(#logoGradient)" opacity="0.8"/>
+      <rect x="35" y="12" width="16" height="16" rx="3" fill="url(#logoGradient)" opacity="0.6"/>
+      <polygon points="65,28 75,12 85,28" fill="url(#logoGradient)" opacity="0.7"/>
+      
+      <!-- Company initials or abstract symbol -->
+      <text x="5" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff">P</text>
+      <text x="40" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff">D</text>
+    </svg>
+    <span class="app-title">ParticipantDetails</span>
+  </div>
+
+  <!-- Spacer to push navigation to the right -->
+  <span class="spacer"></span>
+
+  <!-- Navigation Section (Right) -->
+  <div class="navigation-section">
+    <button 
+      mat-raised-button 
+      color="accent" 
+      class="nav-button"
+      (click)="navigateToParticipants()"
+      aria-label="Navigate to Participants">
+      <mat-icon>people</mat-icon>
+      Participants
+    </button>
+    
+    <button 
+      mat-raised-button 
+      color="accent" 
+      class="nav-button"
+      (click)="navigateToDashboard()"
+      aria-label="Navigate to Dashboard">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+  </div>
+</mat-toolbar>

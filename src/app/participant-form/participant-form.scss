@@ -1,0 +1,203 @@
+.participant-form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+
+  .form-header {
+    margin-bottom: 24px;
+    border-radius: 8px 8px 0 0;
+    
+    .header-title {
+      margin-left: 16px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .form-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+}
+
+.participant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .form-section {
+    margin-bottom: 16px;
+    
+    mat-card-header {
+      margin-bottom: 16px;
+      
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #1976d2;
+        font-size: 18px;
+        font-weight: 600;
+        
+        mat-icon {
+          color: #1976d2;
+        }
+      }
+      
+      mat-card-subtitle {
+        margin-top: 8px;
+        color: #666;
+        font-size: 14px;
+      }
+    }
+    
+    mat-card-content {
+      padding-top: 0;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .form-field {
+    flex: 1;
+    min-width: 0;
+    
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border-top: 1px solid #e0e0e0;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    button {
+      min-width: 120px;
+      height: 48px;
+      font-weight: 500;
+      
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+
+    .cancel-btn {
+      background-color: #f44336;
+      color: white;
+      
+      &:hover {
+        background-color: #d32f2f;
+      }
+    }
+
+    .reset-btn {
+      background-color: #ff9800;
+      color: white;
+      
+      &:hover {
+        background-color: #f57c00;
+      }
+    }
+
+    .submit-btn {
+      &:disabled {
+        background-color: #ccc;
+        color: #666;
+      }
+    }
+  }
+}
+
+// Material form field customizations
+mat-form-field {
+  .mat-mdc-form-field-subscript-wrapper {
+    margin-top: 4px;
+  }
+  
+  .mat-mdc-form-field-hint-wrapper,
+  .mat-mdc-form-field-error-wrapper {
+    font-size: 12px;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .participant-form-container {
+    padding: 16px;
+    
+    .form-content {
+      padding: 16px;
+    }
+    
+    .form-header .header-title {
+      font-size: 20px;
+    }
+  }
+}
+
+// Custom scrollbar for textarea
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+// Error state styling
+.mat-mdc-form-field.mat-form-field-invalid {
+  .mat-mdc-form-field-outline {
+    color: #f44336;
+  }
+}
+
+// Success state for valid fields
+.mat-mdc-form-field:not(.mat-form-field-invalid) {
+  .mat-mdc-form-field-outline {
+    color: #4caf50;
+  }
+}
+
+// Loading state (for future use)
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// Card elevation on hover
+.form-section {
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}

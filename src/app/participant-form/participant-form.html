@@ -1,0 +1,200 @@
+<div class="participant-form-container">
+  <!-- Header -->
+  <mat-toolbar color="primary" class="form-header">
+    <mat-icon>{{ isEditMode ? 'edit' : 'person_add' }}</mat-icon>
+    <span class="header-title">{{ isEditMode ? 'Edit Participant Details' : 'Add Participant Details' }}</span>
+  </mat-toolbar>
+
+  <div class="form-content">
+    <form [formGroup]="participantForm" (ngSubmit)="onSubmit()" class="participant-form">
+      
+      <!-- Personal Information Section -->
+      <mat-card class="form-section">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>person</mat-icon>
+            Personal Information
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Name *</mat-label>
+              <input matInput formControlName="name" placeholder="Enter full name">
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="participantForm.get('name')?.touched && participantForm.get('name')?.invalid">
+                {{ getErrorMessage('name') }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="phoneNumber" placeholder="+1 (555) 123-4567">
+              <mat-icon matSuffix>phone</mat-icon>
+              <mat-error *ngIf="participantForm.get('phoneNumber')?.touched && participantForm.get('phoneNumber')?.invalid">
+                {{ getErrorMessage('phoneNumber') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Email *</mat-label>
+              <input matInput formControlName="email" placeholder="example@email.com" type="email">
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="participantForm.get('email')?.touched && participantForm.get('email')?.invalid">
+                {{ getErrorMessage('email') }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>LinkedIn Profile</mat-label>
+              <input matInput formControlName="linkedInProfile" placeholder="https://linkedin.com/in/yourprofile">
+              <mat-icon matSuffix>link</mat-icon>
+              <mat-error *ngIf="participantForm.get('linkedInProfile')?.touched && participantForm.get('linkedInProfile')?.invalid">
+                {{ getErrorMessage('linkedInProfile') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>GitHub ID</mat-label>
+              <input matInput formControlName="githubId" placeholder="yourgithubusername">
+              <mat-icon matSuffix>code</mat-icon>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-divider></mat-divider>
+
+      <!-- Technical Skills Section -->
+      <mat-card class="form-section">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>build</mat-icon>
+            Technical Skills
+          </mat-card-title>
+          <mat-card-subtitle>Rate your skills from 1 (Beginner) to 10 (Expert) *</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Angular *</mat-label>
+              <mat-select formControlName="angular">
+                <mat-option *ngFor="let level of skillLevels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="participantForm.get('angular')?.touched && participantForm.get('angular')?.invalid">
+                {{ getErrorMessage('angular') }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Python *</mat-label>
+              <mat-select formControlName="python">
+                <mat-option *ngFor="let level of skillLevels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="participantForm.get('python')?.touched && participantForm.get('python')?.invalid">
+                {{ getErrorMessage('python') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>CSS *</mat-label>
+              <mat-select formControlName="css">
+                <mat-option *ngFor="let level of skillLevels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="participantForm.get('css')?.touched && participantForm.get('css')?.invalid">
+                {{ getErrorMessage('css') }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>HTML *</mat-label>
+              <mat-select formControlName="html">
+                <mat-option *ngFor="let level of skillLevels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="participantForm.get('html')?.touched && participantForm.get('html')?.invalid">
+                {{ getErrorMessage('html') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>MySQL *</mat-label>
+              <mat-select formControlName="mysql">
+                <mat-option *ngFor="let level of skillLevels" [value]="level.value">
+                  {{ level.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="participantForm.get('mysql')?.touched && participantForm.get('mysql')?.invalid">
+                {{ getErrorMessage('mysql') }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-divider></mat-divider>
+
+      <!-- Training Outcome Section -->
+      <mat-card class="form-section">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>assignment</mat-icon>
+            Training Outcome
+          </mat-card-title>
+          <mat-card-subtitle>Share your training outcome and notes (250-1000 characters) *</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Training Outcome and Notes *</mat-label>
+            <textarea 
+              matInput 
+              formControlName="trainingOutcome" 
+              rows="6"
+              placeholder="Describe your training outcome and notes..."
+              maxlength="1000">
+            </textarea>
+            <mat-hint align="end">
+              {{ participantForm.get('trainingOutcome')?.value?.length || 0 }}/1000
+            </mat-hint>
+            <mat-error *ngIf="participantForm.get('trainingOutcome')?.touched && participantForm.get('trainingOutcome')?.invalid">
+              {{ getErrorMessage('trainingOutcome') }}
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Footer Actions -->
+      <div class="form-actions">
+        <button mat-raised-button type="button" (click)="onCancel()" class="cancel-btn">
+          <mat-icon>cancel</mat-icon>
+          Cancel
+        </button>
+        
+        <button mat-raised-button type="button" (click)="onReset()" class="reset-btn">
+          <mat-icon>refresh</mat-icon>
+          Reset
+        </button>
+        
+        <button mat-raised-button color="primary" type="submit" [disabled]="participantForm.invalid" class="submit-btn">
+          <mat-icon>{{ isEditMode ? 'update' : 'save' }}</mat-icon>
+          {{ isEditMode ? 'Update Participant' : 'Submit' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
